@@ -1,0 +1,231 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <style>
+    .page-heading {
+      /* text-align: justify; */
+      text-decoration: underline;
+      font-weight: bolder;
+      margin-top: 25px;
+      margin-bottom: 1rem;
+    }
+
+    .card-container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      margin-top: 50px;
+    }
+
+    .carousel-inner {
+      justify-content: center;
+      align-items: flex-start;
+
+    }
+
+
+    /* Default styles for all screen sizes */
+    .card {
+      min-width: 40%;
+      height: auto;
+      overflow-y: auto;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      scrollbar-width: none;
+      overflow: auto;
+      margin: 10px;
+      margin-right: 30px;
+      margin-left: 30px;
+      overflow-y: scroll;
+      background-color: #FFF;
+      box-shadow: none;
+      transition: background-color 0.5s ease-in-out, border-color 0.5s ease-in-out;
+    }
+
+    .card:hover {
+      background-color: #fbfafa;
+      border-color: #ffd797;
+      cursor: pointer;
+    }
+
+    .card::-webkit-scrollbar {
+      width: 0 !important;
+    }
+
+    .image-container {
+      text-align: center;
+    }
+
+    .card-img-top {
+      width: relative;
+      height: 300px;
+      /* border-radius: 50%; */
+      /* Make the image circular */
+      overflow: hidden;
+      display: block;
+      filter: brightness(150%);
+    }
+    
+
+    /* Change the font family */
+    .card-title {
+      font-size: 24px;
+      font-weight: bold;
+      font-family: 'Permanent Marker', cursive;
+      /* Add fun and playful font */
+      text-align: center;
+      padding-right: 10px;
+      padding-top: 10px;
+      padding-left: 10px;
+      color: #333;
+    }
+
+    .card-subtitle {
+      font-size: 15px;
+      font-weight: normal;
+      font-family: 'Permanent Marker', cursive;
+      /* Add fun and playful font */
+      text-align: center;
+      color: #666;
+    }
+
+    .card-description {
+      font-size: 14px;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: justify;
+    color: #888;
+    word-wrap: break-word;
+    }
+
+    /* Media query for large screens */
+    .card {
+      margin: auto;
+      width: calc(85% - 20px);
+    }
+
+    @media (min-width: 767px) {
+      .card {
+        width: calc(40% - 20px);
+      }
+
+    }
+
+    @media (min-width: 1200px) {
+      .card {
+        width: calc(25% - 20px);
+      }
+
+    }
+    .carousel-control-prev,
+    .carousel-control-next,
+    .carousel-control-prev:visited,
+    .carousel-control-next:visited {
+      color: #f70f0f;
+      font-size: 2rem;
+    }
+  </style>
+
+</head>
+
+<body style="min-height:1500px;">
+  <div class="page-heading text-center">
+    <h4 class="display-5">Profiles of Selected Students</h4>
+  </div>
+
+  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner" id="">
+
+      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      var title = "";
+      var studentlist = [];
+
+    </script>
+    {{ collection:students }}
+
+    <script>
+      var student = {
+        title: "{{title}}",
+        program: "{{program}}",
+        featured_image: "{{ featured_image }}",
+        profile: "{{profile}}"
+      }
+      // console.log(student)
+      studentlist.push(student);
+    </script>
+    {{ /collection:students }}
+    <script>
+
+      var innerCarousel = document.getElementsByClassName("carousel-inner")[0];
+      studentlist.forEach((student, index) => {
+        // create card element
+        var card = document.createElement('div');
+        card.classList.add('card');
+        card.style.width = '18rem';
+
+        // create image element
+        var img = document.createElement('img');
+        img.classList.add('card-img-top', 'rounded-circle,card-img');
+        img.src = student.featured_image;
+        img.alt = student.title;
+        // img.height= "100";
+        // img.width = "100";
+
+        // create card body element
+        var cardBody = document.createElement('div');
+        cardBody.classList.add('card-body');
+
+        // create title element
+        var title = document.createElement('h5');
+        title.classList.add('card-title');
+        title.textContent = student.title;
+
+        // create program element
+        var program = document.createElement('p');
+        program.classList.add('card-subtitle');
+        program.textContent = student.program;
+
+        // create description element
+        var description = document.createElement('p');
+        description.classList.add('card-description');
+        description.textContent = student.profile;
+
+        // append elements to card and innerCarousel
+        cardBody.appendChild(title);
+        cardBody.appendChild(program);
+        cardBody.appendChild(description);
+        card.appendChild(img);
+        card.appendChild(cardBody);
+
+        var carouselItem = document.createElement('div');
+        carouselItem.classList.add('carousel-item');
+        if (index === 0) {
+          carouselItem.classList.add('active');
+        }
+        carouselItem.appendChild(card);
+        innerCarousel.appendChild(carouselItem);
+      });
+
+
+
+
+  //  stimage.src = studentlist[0].featured_image
+  // console.log(stimage)
+    </script>
+</body>

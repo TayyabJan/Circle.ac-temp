@@ -1,0 +1,873 @@
+<div class="bg-white">
+    <main>
+        <!-- Hero card -->
+
+        <!-- <div class="mainImagesSlider">
+
+                <img class="object-cover" src="{{main_banner_image_second}}" alt="{{main_banner_alt_second}}">
+                <div class="absolute inset-0 bg-green-700 bg-opacity-50 mix-blend-multiply"></div>
+
+                <div class="relative px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8">
+                    <h1 class="text-center text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl"
+                        data-aos="fade-up" data-aos-delay="400">
+                        <span class=" font-semibold text-white ">{{main_banner_title_second}}</span>
+                    </h1>
+                    <p class="mt-6 max-w-lg mx-auto text-center text-2xl text-white sm:max-w-3xl" data-aos="fade-right"
+                        data-aos-delay="600">
+                        {{main_banner_subtitle_second}}
+                    </p>
+                </div>
+            </div> -->
+        <section>
+            <div class="container">
+                <div data-aos="zoom-out" data-aos-delay="300"
+                    class="hero-slides-container relative shadow-xl sm:rounded-2xl sm:overflow-hidden">
+                    <div class="mainImagesSlider">
+                        <img class="h-full w-full object-cover" src="{{main_banner_image_first}}"
+                            alt="{{main_banner_alt_first}}">
+                        <div>
+
+                            <h1 class="hero-title text-white font-semibold">{{main_banner_title_first}}</h1>
+                            <h6 class="hero-subtitle text-white font-semibold">{{main_banner_subtitle_first}}</h6>
+                        </div>
+                    </div>
+                    <div class="mainImagesSlider">
+                        <img class="h-full w-full object-cover" src="{{main_banner_image_second}}"
+                            alt="{{main_banner_alt_second}}">
+                            <div>
+
+                                <h1 class="hero-title text-white font-semibold">{{main_banner_title_second}}</h1>
+                                <h6 class="hero-subtitle text-white font-semibold">{{main_banner_subtitle_second}}</h6>
+                            </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+        <section id="metric" style="background-color:#f7f7f7">
+            <div class="container">
+                <div class="row justify-content-around mt-5 py-5">
+
+                    <div class="metric-circle">
+                        <h3 style="line-height:2"
+                            class="text-2xl font-extrabold text-gray-900 tracking-tight sm:text-3xl">
+                            {{metric_title_first}}
+                        </h3>
+                        <div style="color:#897d7d">{{metric_description_first}}</div>
+                    </div>
+                    <div class="metric-circle">
+                        <h3 style="line-height:2"
+                            class="text-2xl font-extrabold text-gray-900 tracking-tight sm:text-3xl">
+                            {{metric_title_second}}
+                        </h3>
+                        <div style="color:#897d7d">{{metric_description_second}}</div>
+                    </div>
+                    <div class="metric-circle">
+                        <h3 style="line-height:2"
+                            class="text-2xl font-extrabold text-gray-900 tracking-tight sm:text-3xl">
+                            {{metric_title_third}}
+                        </h3>
+                        <div style="color:#897d7d">{{metric_description_third}}</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+</div>
+
+
+<!-- This example requires Tailwind CSS v2.0+ -->
+<section class="sections" style="padding-top:60px" id="rates">
+    <div class="container">
+        <div class="mx-auto" data-aos="zoom-in" data-aos-delay="100">
+            <h3 class="text-2xl font-extrabold text-gray-900 tracking-tight sm:text-3xl">
+                From our alumni community
+            </h3>
+            <p class="mt-3 text-lg text-gray-500" data-aos="zoom-out" data-aos-delay="200">
+                Read what our students think about the virtual programmes we offer!
+            </p>
+        </div>
+
+        <div data-aos="zoom-out" data-aos-delay="300"
+            class="rates-slides-container relative shadow-xl sm:rounded-2xl sm:overflow-hidden">
+            {{ collection:testimonials }}
+            <div class="ratesSlides">
+                <q data-aos="fade-left" data-aos-delay="300" style="color:black;font-size: 1.3rem;">{{content}}</q>
+                <p data-aos="fade-right" data-aos-delay="350" class="author">{{title}}</p>
+                <p data-aos="fade-down" data-aos-delay="400" class="course"> {{program}}</p>
+            </div>
+            {{ /collection:testimonials }}
+            <a class="rates-prev" onclick="plusRatesSlides(-1)">❮</a>
+            <a class="rates-next" onclick="plusRatesSlides(1)">❯</a>
+
+        </div>
+
+    </div>
+</section>
+<br><br><br>
+<section id="programs" class="blog-area pt-125 pb-130">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="section-title text-center pb-25">
+                    <h3 class="text-2xl font-extrabold text-gray-700 tracking-tight sm:text-3xl">Current
+                        Programmes</h3>
+                    <p style="padding-bottom:10px;">Browse through our dedicated virtual programmes currently available
+                        aimed to develop innovative thought, entrepreneurship, and find brilliant solutions to real
+                        world problems!</p>
+                </div> <!-- section title -->
+            </div>
+        </div> <!-- row -->
+        <div class="row justify-content-center">
+            {{ collection:programmes }}
+            {{if isFeatured == "yes"}}
+            <div class="col-lg-3 col-md-8 col-sm-9" data-aos="zoom-in">
+                <div class="single-blog" style="margin-top:30px;">
+                    <a href="{{url}}">
+                        <div class="blog-image">
+                            <img src="{{ featured_image }}" alt="Program Image">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-title" style="color:#32333c">{{title}}</div>
+                            <span>{{age_group}}</span>
+                        </div>
+                    </a>
+                </div> <!-- single blog -->
+            </div>
+            {{/if}}
+            {{/collection:programmes}}
+
+        </div> <!-- row -->
+        <div class="row" style="padding-bottom:40px; padding-top:25px;">
+            <div class="col-lg-12">
+                <div class="blog-more text-center mt-50">
+                    <a class="main-btn" href="/programs">All Programs</a>
+                </div> <!-- blog more -->
+            </div>
+        </div> <!-- row -->
+    </div> <!-- container -->
+</section>
+
+
+<section class="sections contact" id="contact" data-scroll-index="6" style="background-color: #003c4e">
+    <div class="container">
+        <div class="row">
+            <!-- START CONTACT SECTION TITLE -->
+            <div class="cont-title col-md-5">
+                <h3>Get In <span>Touch with the Circle</span></h3>
+                <p>Reach out to the Circle Maldives by using the form on the right! Our team is always excited to hear
+                    about new ideas, projects, and ready to hear from those who want to volunteer for the Circle.</p>
+                <ul class="info">
+                    <li>
+                        <i class="fas fa-map-marker icons"></i>
+                        <p>Level 3, Centro Mall, Hulhumale, Maldives</p>
+                    </li>
+                    <li>
+                        <i class="fas fa-mobile icons"></i>
+                        <p>+960 7310600</p>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope icons"></i>
+                        <p>admin@thecircle.ac</p>
+                    </li>
+                    <li>
+                        <i class="fas fa-redo icons"></i>
+                        <p>Sat-Thur - 10:00 AM to 6:00 PM</p>
+                    </li>
+                </ul>
+            </div>
+            <!-- END CONTACT SECTION TITLE -->
+
+
+            <!-- START CONTACT FORM -->
+            <div class="contact-form col-md-7">
+                <form action="./php/contact.html" method="POST" class="cont-fo">
+                    <div class="contact-item col-md-12">
+                        <input type="text" name="name" placeholder="Name *" required="required">
+                    </div>
+                    <div class="contact-item col-md-12">
+                        <input type="email" name="email" placeholder="Email *" required="required">
+                    </div>
+                    <div class="contact-item col-md-12">
+                        <input type="text" name="subject" placeholder="Subject">
+                    </div>
+                    <div class="contact-item col-md-12">
+                        <textarea id="form_message" name="message" placeholder="Message *" rows="4" required="required"
+                            data-error="Message."></textarea>
+                    </div>
+                    <div class="contact-item col-md-12">
+                        <input  id = "btn-Send" type="submit" class="button disabled" value="Send Message">
+                    </div>
+
+
+                </form>
+            </div>
+            <!-- END CONTACT FORM -->
+
+
+        </div>
+    </div>
+</section>
+
+<!-- <div id="map"></div> -->
+</div>
+
+<!-- More main page content here... -->
+</main>
+</div>
+
+<!-- <script>
+    const colors = ["#3CC157", "#2AA7FF", "#1B1B1B", "#FCBC0F", "#F85F36"];
+
+const numBalls = 30;
+const balls = [];
+
+for (let i = 0; i < numBalls; i++) {
+  let ball = document.createElement("div");
+  ball.classList.add("ball");
+  ball.style.background = colors[Math.floor(Math.random() * colors.length)];
+  ball.style.left = `${Math.floor(Math.random() * 100)}vw`;
+  ball.style.top = `${Math.floor(Math.random() * 100)}vh`;
+  ball.style.transform = `scale(${Math.random()})`;
+  ball.style.width = `${Math.random()}em`;
+  ball.style.height = ball.style.width;
+
+  balls.push(ball);
+  document.body.append(ball);
+}
+
+// Keyframes
+balls.forEach((el, i, ra) => {
+  let to = {
+    x: Math.random() * (i % 2 === 0 ? -11 : 11),
+    y: Math.random() * 12
+  };
+
+  let anim = el.animate(
+    [
+      { transform: "translate(0, 0)" },
+      { transform: `translate(${to.x}rem, ${to.y}rem)` }
+    ],
+    {
+      duration: (Math.random() + 1) * 2000, // random duration
+      direction: "alternate",
+      fill: "both",
+      iterations: Infinity,
+      easing: "ease-in-out"
+    }
+  );
+});
+
+</scrip> -->
+<script>
+
+var btn_Send = document.getElementById("btn-Send");
+btn_Send.addEventListener('click',function(){
+    console.log("I am send button");
+})
+
+    var myIndex = 0;
+
+    function carousel() {
+        let i;
+        let x = document.getElementsByClassName("ratesSlides");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        myIndex++;
+        if (myIndex > x.length) {
+            myIndex = 1
+        }
+        x[myIndex - 1].style.display = "block";
+        setTimeout(carousel, 4000); // Change div every 4 seconds
+    }
+    carousel();
+
+</script>
+<script>
+    var myIndex2 = 0;
+
+    function carousel2() {
+        let i;
+        let x = document.getElementsByClassName("mainImagesSlider");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        myIndex2++;
+        if (myIndex2 > x.length) {
+            myIndex2 = 1
+        }
+        x[myIndex2 - 1].style.display = "block";
+        setTimeout(carousel2, 3000); // Change div every 2 seconds
+    }
+    carousel2();
+
+</script>
+
+<script>
+    AOS.init();
+    var slideIndex = 0;
+    showSlides(slideIndex);
+
+
+    function plusRatesSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentRatesSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("ratesSlides");
+        var dots = document.getElementsByClassName("rates-dot");
+        if (n > slides.length) {
+            slideIndex = 1
+        }
+        if (n < 1) {
+            slideIndex = slides.length
+        }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+    }
+
+    // Initialize and add the map
+    function initMap() {
+        // The location of Uluru
+        const uluru = {
+            lat: -25.344,
+            lng: 131.031
+        };
+        // The map, centered at Uluru
+        const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 4,
+            center: uluru,
+        });
+        // The marker, positioned at Uluru
+        const marker = new google.maps.Marker({
+            position: uluru,
+            map: map,
+        });
+    }
+
+    window.initMap = initMap;
+
+</script>
+<script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzvfMcmJROe8wxkxvYcxbOGwlTYW8teto&callback=initMap&v=weekly"
+    defer></script>
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <meta name="description"
+        content="Nurturing the leaders of tomorrow in the Maldives. Empowering the next generation with future proof skills to create an impactful change.">
+    <meta name="keywords"
+        content="Coding classes for kids, online classes for kids, online classes maldives, ugail, virtual learning maldives, maldives, the circle maldives">
+    <style>
+        .hero-slides-container {
+            max-height: 500px;
+        }
+
+        .metric-circle {
+            width: 180px;
+            height: 180px;
+            padding: 20px;
+            border-radius: 50%;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 20px;
+            background: rgb(255, 255, 255)
+        }
+
+        @media (max-width: 767px) {
+            .metric-circle {
+                width: 150px;
+                height: 150px;
+                padding: 10px;
+            }
+        }
+
+
+        @media only screen and (min-width: 768px) and (max-width: 991px) {
+            .blog-area {
+                padding-top: 90px;
+                padding-bottom: 100px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .blog-area {
+                padding-top: 70px;
+                padding-bottom: 80px;
+            }
+        }
+
+        .ball {
+            position: absolute;
+            border-radius: 100%;
+            opacity: 0.7;
+        }
+
+        .main-btn {
+            display: inline-block;
+            font-weight: 500;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            border: 1px solid #22C55E;
+            padding: 0 40px;
+            font-size: 15px;
+            line-height: 48px;
+            border-radius: 50px;
+            color: #fff;
+            cursor: pointer;
+            z-index: 5;
+            -webkit-transition: all 0.3s ease-out 0s;
+            -moz-transition: all 0.3s ease-out 0s;
+            -ms-transition: all 0.3s ease-out 0s;
+            -o-transition: all 0.3s ease-out 0s;
+            transition: all 0.3s ease-out 0s;
+            -webkit-box-shadow: 0px 5px 8px 0px rgba(118, 78, 249, 0.55);
+            -moz-box-shadow: 0px 5px 8px 0px rgba(118, 78, 249, 0.55);
+            box-shadow: 0px 5px 8px 0px rgba(118, 78, 249, 0.55);
+            background-color: #22C55E;
+            text-transform: uppercase;
+        }
+
+        .main-btn:hover {
+            background-color: #fff;
+            color: #22C55E;
+            border-color: #22C55E;
+        }
+
+        .main-btn.main-btn-2 {
+            background-color: transparent;
+            color: #fff;
+            border-color: #fff;
+            -webkit-box-shadow: none;
+            -moz-box-shadow: none;
+            box-shadow: none;
+        }
+
+        .main-btn.main-btn-2:hover {
+            background-color: #22C55E;
+            color: #fff;
+            border-color: #22C55E;
+        }
+
+        .single-blog {
+            -webkit-box-shadow: 0px 0px 15px 0px rgba(152, 152, 152, 0.25);
+            -moz-box-shadow: 0px 0px 15px 0px rgba(152, 152, 152, 0.25);
+            box-shadow: 0px 0px 15px 0px rgba(152, 152, 152, 0.25);
+            position: relative;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .single-blog .blog-image {
+            overflow: hidden;
+        }
+
+        .single-blog .blog-image img {
+            width: 100%;
+            -webkit-transition: all 0.3s ease-out 0s;
+            -moz-transition: all 0.3s ease-out 0s;
+            -ms-transition: all 0.3s ease-out 0s;
+            -o-transition: all 0.3s ease-out 0s;
+            transition: all 0.3s ease-out 0s;
+        }
+
+        .single-blog .blog-content {
+            width: 75%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background-color: #fff;
+            padding: 20px;
+            -webkit-transition: all 0.3s ease-out 0s;
+            -moz-transition: all 0.3s ease-out 0s;
+            -ms-transition: all 0.3s ease-out 0s;
+            -o-transition: all 0.3s ease-out 0s;
+            transition: all 0.3s ease-out 0s;
+        }
+
+        @media (max-width: 767px) {
+            .single-blog .blog-content {
+                padding: 20px;
+            }
+        }
+
+        .blog-title {
+            font-size: 15px;
+            font-weight: 600;
+            padding-bottom: 5px;
+            -webkit-transition: all 0.3s ease-out 0s;
+            -moz-transition: all 0.3s ease-out 0s;
+            -ms-transition: all 0.3s ease-out 0s;
+            -o-transition: all 0.3s ease-out 0s;
+            transition: all 0.3s ease-out 0s;
+            color: #32333c;
+        }
+
+        .single-blog .blog-content .blog-title a {
+            font-size: 18px;
+            font-weight: 600;
+            padding-bottom: 5px;
+            -webkit-transition: all 0.3s ease-out 0s;
+            -moz-transition: all 0.3s ease-out 0s;
+            -ms-transition: all 0.3s ease-out 0s;
+            -o-transition: all 0.3s ease-out 0s;
+            transition: all 0.3s ease-out 0s;
+            color: #32333c;
+        }
+
+        @media (max-width: 767px) {
+            .single-blog .blog-content .blog-title a {
+                font-size: 12px;
+            }
+        }
+
+        .single-blog .blog-content span {
+            font-size: 16px;
+            color: #8a8fa3;
+            -webkit-transition: all 0.3s ease-out 0s;
+            -moz-transition: all 0.3s ease-out 0s;
+            -ms-transition: all 0.3s ease-out 0s;
+            -o-transition: all 0.3s ease-out 0s;
+            transition: all 0.3s ease-out 0s;
+        }
+
+        .single-blog:hover .blog-image img {
+            -webkit-transform: scale(1.2);
+            -moz-transform: scale(1.2);
+            -ms-transform: scale(1.2);
+            -o-transform: scale(1.2);
+            transform: scale(1.2);
+        }
+
+        .single-blog:hover .blog-content {
+            background-color: #22C55E;
+        }
+
+        .single-blog:hover .blog-content .blog-title a {
+            color: #fff;
+        }
+
+        .single-blog:hover .blog-content span {
+            color: #fff;
+        }
+
+        #map {
+            height: 400px;
+            /* The height is 400 pixels */
+            width: 100%;
+            /* The width is the width of the web page */
+        }
+
+        a {
+            text-decoration: none
+        }
+
+        .contact .cont-title h3 {
+            font-weight: 300;
+            font-size: 45px;
+            line-height: 50px;
+            margin-bottom: 40px;
+        }
+
+        .contact .cont-title h3 span {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .contact .cont-title p {
+            color: #bbb;
+            font-size: 13.5px;
+            font-weight: 400;
+        }
+
+        .contact .cont-title .info li p {
+            display: inline-block;
+            color: #FFF;
+            margin-left: 15px;
+            font-size: 13px;
+        }
+
+        .contact .cont-title {
+            color: #FFF;
+        }
+
+        .contact .contact-form input {
+            background-color: white;
+            color: black;
+        }
+
+        .contact .contact-form .contact-item {
+            margin-bottom: 25px;
+            padding: 0;
+        }
+
+        .contact .contact-form textarea,
+        .contact .contact-form input {
+            width: 100%;
+
+            font-size: 16px;
+            padding: 15px;
+            border: none;
+            background: #232323;
+            border: 1px solid #232323;
+            color: #FFF;
+            -webkit-transition: ease-out .3s;
+            -moz-transition: ease-out .3s;
+            -o-transition: ease-out .3s;
+            transition: ease-out .3s;
+        }
+
+        .contact .contact-form .contact-item {
+            margin-bottom: 25px;
+            padding: 0;
+        }
+
+        .sections {
+            padding: 120px 0;
+            position: relative;
+        }
+
+        .contact .contact-form textarea,
+        .contact .contact-form input {
+            background-color: white;
+            color: black;
+        }
+
+        .contact .contact-form .button {
+            background-color: #003c4e;
+            border-color: white;
+            color: white;
+        }
+
+        .contact .contact-form .button:hover {
+            border-color: #003c4e;
+            background-color: white;
+            color: #003c4e;
+        }
+
+        .contact .contact-form .button {
+            display: inline-block;
+            width: 100%;
+            margin: 0 auto;
+            float: none;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .icons {
+            color: #3BAFDA;
+        }
+
+        /* Slideshow container */
+        .rates-slides-container {
+            position: relative;
+
+            /* fallback for old browsers */
+
+
+        }
+
+        /* Slides */
+        .ratesSlides {
+            display: none;
+            padding: 80px;
+            text-align: center;
+        }
+
+        .mainImagesSlider {
+            display: none;
+            position: relative;
+        }
+
+        .hero-title {
+            position: absolute;
+            font-size: 2.4rem;
+            top: 150px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-shadow: 2px 2px 2px black;
+        }
+
+        .hero-subtitle {
+            position: absolute;
+            font-size: 1.1rem;
+            top: 200px;
+            left: 50%;
+            transform: translate(-44%, -50%);
+            text-shadow: 2px 2px 2px black;
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1rem;
+                line-height: 1.1;
+                top: 40px;
+            }
+
+            .hero-subtitle {
+                font-size: 0.7rem;
+                top: 100px;
+                transform: translate(-50%, -50%)
+            }
+        }
+
+        @media (max-width: 768px) and (min-width: 480px) {
+            .hero-title {
+                top: 80px;
+                font-size: 1.4rem;
+                line-height: 1.3;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+                top: 170px;
+                transform: translate(-50%, -50%)
+            }
+        }
+
+        @media (max-width: 1000px) and (min-width: 768px) {
+            .hero-title {
+                top: 80px;
+                font-size: 1.7rem;
+                line-height: 1.4;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+                top: 150px;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        @media (max-width: 1200px) and (min-width: 1000px) {
+            .hero-title {
+                top: 120px;
+                font-size: 1.7rem;
+                line-height: 1.4;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+                top: 180px
+            }
+        }
+
+        @media (max-width: 1401px) and (min-width: 1200px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            .hero-subtitle {
+                transform: translate(-50%, -50%);
+                top: 200px
+            }
+        }
+
+        /* rates-next & rates-previous buttons */
+        .rates-prev,
+        .rates-next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            margin-top: -30px;
+            padding: 16px;
+            color: #888;
+            font-weight: bold;
+            font-size: 20px;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+
+        /* Position the "rates-next button" to the right */
+        .rates-next {
+            position: absolute;
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        /* On hover, add a black background color with a little bit see-through */
+        .rates-prev:hover,
+        .rates-next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+        }
+
+        /* The rates-dot/bullet/indicator container */
+        .rates-rates-dot-container {
+            text-align: center;
+            padding: 20px;
+            background: #ddd;
+        }
+
+        /* The rates-dots/bullets/indicators */
+        .rates-dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        /* Add a background color to the active rates-dot/circle */
+        .active,
+        .rates-dot:hover {
+            background-color: #717171;
+        }
+
+        /* Add an italic font style to all quotes */
+        q {
+            font-style: italic;
+        }
+
+        /* Add a blue color to the author */
+        .author {
+            padding-top: 10px;
+            color: #342681;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .course {
+            color: #83790c;
+            font-weight: 480;
+        }
+
+    </style>
+
+
+    <script src="https://kit.fontawesome.com/b5d16a9783.js" crossorigin="anonymous"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HYVQ650XP8"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-HYVQ650XP8');
+
+    </script>
+
+</head>

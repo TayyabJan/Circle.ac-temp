@@ -82,7 +82,7 @@
     .card-img-top {
       width: 100px;
       height: 100px;
-      /* border-radius: 50%; */
+      border-radius: 50%;
       /* Make the image circular */
       overflow: hidden;
       display: flex;
@@ -149,12 +149,9 @@
       }
 
     }
-    .carousel-control-prev,
-    .carousel-control-next,
-    .carousel-control-prev:visited,
-    .carousel-control-next:visited {
-      color: #f70f0f;
-      font-size: 2rem;
+    #prev-btn , #next-btn{
+      color: blue;
+      font-size: larger;
     }
   </style>
 
@@ -168,11 +165,11 @@
   <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner" id="">
 
-      <a class="carousel-control-prev"  href="#carouselExampleControls" role="button" data-slide="prev">Previous
+      <a class="carousel-control-prev" id="prev-btn" href="#carouselExampleControls" role="button" data-slide="prev">Previous
        
      
       </a>
-      <a class="carousel-control-next text" href="#carouselExampleControls" role="button" data-slide="next">Next
+      <a class="carousel-control-next text" id="next-btn" href="#carouselExampleControls" role="button" data-slide="next">Next
        
  
       </a>

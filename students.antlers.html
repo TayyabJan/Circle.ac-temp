@@ -19,6 +19,27 @@
       margin-top: 50px;
     }
 
+      .rates-next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            margin-top: -30px;
+            padding: 16px;
+            color: #888;
+            font-weight: bold;
+            font-size: 20px;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+
+        /* Position the "rates-next button" to the right */
+        .rates-next {
+            position: absolute;
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
     .carousel-inner {
       justify-content: center;
       align-items: flex-start;
@@ -59,14 +80,22 @@
     }
 
     .card-img-top {
-      width: relative;
-      height: 300px;
+      width: 100px;
+      height: 100px;
       /* border-radius: 50%; */
       /* Make the image circular */
       overflow: hidden;
-      display: block;
+      display: flex;
       filter: brightness(150%);
+      justify-content: center;
+      
     }
+.image-div{
+  margin-top: 10px;
+  display: flex;
+       
+      justify-content: center;
+}
     
 
     /* Change the font family */
@@ -139,13 +168,13 @@
   <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner" id="">
 
-      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
+      <a class="carousel-control-prev"  href="#carouselExampleControls" role="button" data-slide="prev">Previous
+       
+     
       </a>
-      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
+      <a class="carousel-control-next text" href="#carouselExampleControls" role="button" data-slide="next">Next
+       
+ 
       </a>
     </div>
 
@@ -179,6 +208,9 @@
         card.classList.add('card');
         card.style.width = '18rem';
 
+
+        var image_div = document.createElement('div');
+        image_div.classList.add('image-div');
         // create image element
         var img = document.createElement('img');
         img.classList.add('card-img-top', 'rounded-circle,card-img');
@@ -210,7 +242,8 @@
         cardBody.appendChild(title);
         cardBody.appendChild(program);
         cardBody.appendChild(description);
-        card.appendChild(img);
+        image_div.appendChild(img);
+        card.appendChild(image_div);
         card.appendChild(cardBody);
 
         var carouselItem = document.createElement('div');
